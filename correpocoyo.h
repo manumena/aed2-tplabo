@@ -166,12 +166,11 @@ CorrePocoyo<T>::~CorrePocoyo(){
 
 template<typename T>
 void CorrePocoyo<T>::nuevoCorredor(const T& t){
-	cout << endl << "nuevo corredor" << endl;
 	Nodo *nuevo = new Nodo;
 	nuevo->corredor = new T(t);
 	nuevo->anterior = ultimo;
 	nuevo->siguiente = NULL;
-	cout << "direccion del nuevo nodo: " << nuevo << endl << "direccion nuevo corredor: " << nuevo->corredor << endl << "direccion del anterior: " << nuevo->anterior << endl << "direccion del siguiente: " << nuevo->siguiente << endl;
+	
 	if(primero == NULL) 
 		primero = nuevo;
 	if(ultimo != NULL)
@@ -179,6 +178,8 @@ void CorrePocoyo<T>::nuevoCorredor(const T& t){
 	ultimo = nuevo;
 
 	cantCorredores++;
+
+	cout << endl << "nuevo corredor" << endl << "direccion del nuevo nodo: " << nuevo << endl << "direccion nuevo corredor: " << nuevo->corredor << endl << "direccion del anterior: " << nuevo->anterior << endl << "direccion del siguiente: " << nuevo->siguiente << endl;
 }
 
 template<typename T>
