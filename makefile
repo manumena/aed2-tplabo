@@ -1,0 +1,1 @@
+all: g++ main.cpp correpocoyo.cpp -o run
