@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <cassert>
+
 using namespace std;
 
 /* 
@@ -154,6 +155,8 @@ ostream& operator<<(ostream& out, const CorrePocoyo<T>& a) {
 
 template<typename T>
 CorrePocoyo<T>::CorrePocoyo(){
+	primero = NULL;
+	ultimo = NULL;
 	cantCorredores = 0;
 }
 
@@ -163,15 +166,17 @@ CorrePocoyo<T>::~CorrePocoyo(){
 
 template<typename T>
 void CorrePocoyo<T>::nuevoCorredor(const T& t){
+	cout << endl << "nuevo corredor" << endl;
 	Nodo *nuevo = new Nodo;
 	nuevo->corredor = new T(t);
 	nuevo->anterior = ultimo;
 	nuevo->siguiente = NULL;
-
+	cout << "direccion del nuevo nodo: " << nuevo << endl << "direccion nuevo corredor: " << nuevo->corredor << endl << "direccion del anterior: " << nuevo->anterior << endl << "direccion del siguiente: " << nuevo->siguiente << endl;
 	if(primero == NULL) 
 		primero = nuevo;
 	if(ultimo != NULL)
 		ultimo->siguiente = nuevo;
+	ultimo = nuevo;
 
 	cantCorredores++;
 }
@@ -188,7 +193,16 @@ int CorrePocoyo<T>::tamanio() const{
 
 template<typename T>
 ostream& CorrePocoyo<T>::mostrarCorrePocoyo(ostream& stream) const{
-	stream << "Hola" << endl;
+	stream << endl << "Lista de posiciones: " << endl << endl;
+	int pos = 1;
+	Nodo *actual;
+	actual = primero;
+	while(actual != NULL){
+		stream << pos << "\t" << *(actual->corredor) << endl;
+		actual = actual->siguiente;
+		pos++;
+	}
+	return stream;
 }
 
 #endif //CORREPOCOYO_H
