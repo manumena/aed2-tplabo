@@ -19,6 +19,10 @@ int main(){
 	cout << endl << "Carrera vacia?: " << carrera.esVacia() << endl;
 
 	cout << carrera;
+
+
+	CorrePocoyo<int> carreraClone(carrera);
+
 	
 	cout << endl;
 	return 0;

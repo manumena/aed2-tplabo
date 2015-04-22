@@ -59,3 +59,27 @@ ostream& CorrePocoyo<T>::mostrarCorrePocoyo(ostream& stream) const{
 	}
 	return stream;
 }
+template<typename T>
+CorrePocoyo<T>::CorrePocoyo(const CorrePocoyo<T>& cp){
+	int i = 0;
+	primero = NULL;
+	ultimo = NULL;
+	cantCorredores = 0;
+	while(i< cp.tamanio()){
+		nuevoCorredor(cp.dameCorredorEnPos(i));
+		i++;
+	}
+	
+}
+template<typename T>
+const T& CorrePocoyo<T>::dameCorredorEnPos(int p) const{
+	int i = 0;
+	Nodo *actual;
+	actual = primero;
+	while(i < p){
+		actual = actual->siguiente;
+		i++;
+	}
+	cout << "dir del corredor " << p << ": " << *(actual->corredor);
+	return *(actual->corredor);
+}
