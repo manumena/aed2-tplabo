@@ -163,8 +163,19 @@ const T& CorrePocoyo<T>::damePrimero() const{
 }
 
 template<typename T>
+int CorrePocoyo<T>::damePosicion(const T& t) const{
+	int pos = 1;
+	Nodo *actual = primero;
+	while(*(actual->corredor) != t){
+		pos++;
+		actual = actual->siguiente;
+	}
+	return pos;
+}
+
+template<typename T>
 const T& CorrePocoyo<T>::dameCorredorEnPos(int p) const{
-	int i = 0;
+	int i = 1;
 	Nodo *actual = primero;
 	while(i < p){
 		actual = actual->siguiente;

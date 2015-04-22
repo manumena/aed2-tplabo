@@ -6,6 +6,7 @@ using namespace std;
 
 int main(){
 	CorrePocoyo<int> carrera;
+
 	cout << endl << "Cantidad de corredores: " << carrera.tamanio() << endl;
 	// cout << endl << "Carrera vacia?: " << carrera.esVacia() << endl; 	//Me devuelve 1 en lugar de true
 
@@ -24,7 +25,13 @@ int main(){
 
 	// cout << "Primero: " << carrera.damePrimero() << endl;
 
-	//CorrePocoyo<int> carreraClone(carrera);
+	// cout << "Posicion de A: " << carrera.damePosicion('A') << endl;
+	// cout << "Posicion de B: " << carrera.damePosicion('B') << endl;
+	// cout << "Posicion de C: " << carrera.damePosicion('C') << endl;
+	// cout << "Posicion de D: " << carrera.damePosicion('D') << endl;
+	// cout << "Posicion de E: " << carrera.damePosicion('E') << endl;
+
+	// CorrePocoyo<int> carreraClone(carrera);
 
 	// carrera.nuevoCorredor('F','A');
 	// carrera.nuevoCorredor('G','E');
