@@ -73,8 +73,7 @@ void CorrePocoyo<T>::nuevoCorredor(const T& t){
 
 template<typename T>
 void CorrePocoyo<T>::nuevoCorredor(const T& c1, const T& c2){
-	Nodo *actual;
-	actual = primero;
+	Nodo *actual = primero;
 	while(*(actual->corredor) != c2){		
 		actual = actual->siguiente;
 	}
@@ -161,8 +160,7 @@ void CorrePocoyo<T>::filmarProxExitoso(){
 template<typename T>
 const T& CorrePocoyo<T>::dameCorredorEnPos(int p) const{
 	int i = 0;
-	Nodo *actual;
-	actual = primero;
+	Nodo *actual = primero;
 	while(i < p){
 		actual = actual->siguiente;
 		i++;
@@ -184,8 +182,7 @@ template<typename T>
 ostream& CorrePocoyo<T>::mostrarCorrePocoyo(ostream& stream) const{
 	stream << endl << "Lista de posiciones: " << endl << endl;
 	int pos = 1;
-	Nodo *actual;
-	actual = primero;
+	Nodo *actual = primero;
 	while(actual != NULL){
 		stream << pos << "\t" << *(actual->corredor) << endl;
 		actual = actual->siguiente;
