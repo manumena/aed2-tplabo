@@ -407,11 +407,14 @@ bool CorrePocoyo<T>::operator==(const CorrePocoyo<T>& c) const{
 
 template<typename T>
 ostream& CorrePocoyo<T>::mostrarCorrePocoyo(ostream& stream) const{
-	stream << endl << "Lista de posiciones: " << endl << endl;
+	stream << "[";
 	int pos = 1;
 	Nodo *actual = primero;
 	while(actual != NULL){
-		stream << pos << "\t" << *(actual->corredor) << endl;
+		if(actual->siguiente == NULL)
+			stream << *(actual->corredor) << "]";
+		else
+			stream << *(actual->corredor) << ", ";
 		actual = actual->siguiente;
 		pos++;
 	}

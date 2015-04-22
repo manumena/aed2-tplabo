@@ -4,7 +4,7 @@
 using namespace std;
 
 int main(){
-	// CorrePocoyo<char> carrera;
+	// CorrePocoyo<int> carrera;
 
 	// carrera.nuevoCorredor('A');
 	// carrera.nuevoCorredor('B');
