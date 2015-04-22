@@ -1,5 +1,4 @@
 #include "correpocoyo.h"
-#include "correpocoyo.cpp"
 #include <iostream>
 
 using namespace std;
