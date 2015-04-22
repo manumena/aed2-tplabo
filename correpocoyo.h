@@ -115,7 +115,7 @@ class CorrePocoyo{
 	/*
 	 * Devuelve true si las CorrePocoyos son iguales.
 	 */
-	bool operator==(const CorrePocoyo<T>&) const;	
+	bool operator==(const CorrePocoyo<T>&) const;
 	
 	/*
 	 * Debe mostrar la carrera por el ostream (y retornar el mismo).
@@ -132,7 +132,6 @@ class CorrePocoyo{
 		assert(false);
 		return *this;
 	}
-
 
 	/*
 	 * Aca va la implementación del nodo.

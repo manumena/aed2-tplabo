@@ -186,8 +186,7 @@ const T& CorrePocoyo<T>::dameCorredorEnPos(int p) const{
 
 template<typename T>
 void CorrePocoyo<T>:: sobrepasar(const T& c){
-	Nodo *actual;
-	actual = primero;
+	Nodo *actual = primero;
 	while(*(actual->corredor) != c){		
 		actual = actual->siguiente;
 	}
@@ -198,8 +197,6 @@ void CorrePocoyo<T>:: sobrepasar(const T& c){
 		actual->siguiente->siguiente = NULL;
 		ultimo = actual->siguiente;
 		primero = actual;
-
-
 	}else if(ultimo == actual){
 		actual->anterior->anterior->siguiente = actual;
 		actual->anterior->siguiente = NULL;
@@ -207,8 +204,7 @@ void CorrePocoyo<T>:: sobrepasar(const T& c){
 		actual->anterior = actual->anterior->anterior;
 		actual->siguiente->anterior = actual;
 		ultimo = actual->siguiente;
-
-	}else if((actual->anterior == primero)){
+	}else if(actual->anterior == primero){
 		actual->siguiente->anterior = actual->anterior;
 		actual->anterior->siguiente = actual->siguiente;
 		actual->anterior->anterior = actual;
@@ -238,6 +234,24 @@ bool CorrePocoyo<T>::esVacia() const{
 template<typename T>
 int CorrePocoyo<T>::tamanio() const{
 	return cantCorredores;
+}
+
+template<class T>
+bool CorrePocoyo<T>::operator==(const CorrePocoyo<T>& c) const{
+	if((cantCorredores != c.cantCorredores) || !(*(camara->corredor) == *(c.camara->corredor)))
+		return false;
+	else{
+		int pos = 1;
+		while(pos <= c.cantCorredores){
+			cout << "Pos: " << pos << endl;
+			cout << "Corredor en original: " << dameCorredorEnPos(pos) << endl;
+			cout << "Corredor en otra: " << c.dameCorredorEnPos(pos) << endl;
+			if(dameCorredorEnPos(pos) != c.dameCorredorEnPos(pos))
+				return false;
+			pos++;
+		}
+	}
+	return true;
 }
 
 template<typename T>

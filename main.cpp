@@ -5,46 +5,42 @@
 using namespace std;
 
 int main(){
-	// CorrePocoyo<int> carrera;
-
-	// carrera.nuevoCorredor('A');
-	// carrera.nuevoCorredor('B');
-	// carrera.nuevoCorredor('C');
-	// carrera.nuevoCorredor('D');
-	// cout << carrera;
-
-	// carrera.sobrepasar('D');
-	// cout << carrera;
-	// carrera.sobrepasar('D');
-	// cout << carrera;
-	// carrera.sobrepasar('D');
-	// cout << carrera;
-
-
-	CorrePocoyo<int> carrera;
+	CorrePocoyo<char> carrera;
 
 	carrera.nuevoCorredor('A');
 	carrera.nuevoCorredor('B');
 	carrera.nuevoCorredor('C');
 	carrera.nuevoCorredor('D');
 	carrera.nuevoCorredor('E');
+	cout << carrera;
 
-	cout << endl << "Cantidad de corredores: " << carrera.tamanio() << endl;
-	cout << endl << "Carrera vacia?: " << carrera.esVacia() << endl;
+	// carrera.sobrepasar('D');
+	// cout << carrera;
+	// carrera.sobrepasar('D');
+	// cout << carrera;
+	// carrera.sobrepasar('D');
+	// cout << carrera;
 
-	cout << "Camara en: " << carrera.corredorFilmado() << endl;
+	// cout << endl << "Cantidad de corredores: " << carrera.tamanio() << endl;
+	// cout << endl << "Carrera vacia?: " << carrera.esVacia() << endl; 	//Me devuelve 1 en lugar de true
 
-	cout << carrera << endl;
+	// cout << endl << "Cantidad de corredores: " << carrera.tamanio() << endl;
+	// cout << endl << "Carrera vacia?: " << carrera.esVacia() << endl;
 
-	cout << "Primero: " << carrera.damePrimero() << endl;
+	// cout << "Camara en: " << carrera.corredorFilmado() << endl;
 
-	cout << "Posicion de A: " << carrera.damePosicion('A') << endl;
-	cout << "Posicion de B: " << carrera.damePosicion('B') << endl;
-	cout << "Posicion de C: " << carrera.damePosicion('C') << endl;
-	cout << "Posicion de D: " << carrera.damePosicion('D') << endl;
-	cout << "Posicion de E: " << carrera.damePosicion('E') << endl;
+	// cout << carrera << endl;
 
-	
+	// cout << "Primero: " << carrera.damePrimero() << endl;
+
+	// cout << "Posicion de A: " << carrera.damePosicion('A') << endl;
+	// cout << "Posicion de B: " << carrera.damePosicion('B') << endl;
+	// cout << "Posicion de C: " << carrera.damePosicion('C') << endl;
+	// cout << "Posicion de D: " << carrera.damePosicion('D') << endl;
+	// cout << "Posicion de E: " << carrera.damePosicion('E') << endl;
+
+	// CorrePocoyo<char> carreraClon(carrera);
+	// cout << endl << "Carreras son iguales?: " << endl <<(carrera == carreraClon) << endl;
 
 	// carrera.nuevoCorredor('F','A');
 	// carrera.nuevoCorredor('G','E');
@@ -60,28 +56,22 @@ int main(){
 	// carrera.seCansa('B');
 	// cout << carrera;
 	
-	carrera.filmarProxExitoso();
-	cout << "Camara en: " << carrera.corredorFilmado() << endl;
-
-	
-	carrera.filmarProxExitoso();
-	cout << "Camara en: " << carrera.corredorFilmado() << endl;
-	carrera.filmarProxExitoso();
-	cout << "Camara en: " << carrera.corredorFilmado() << endl;
-	carrera.filmarProxExitoso();
-	cout << "Camara en: " << carrera.corredorFilmado() << endl;
-	carrera.filmarProxPerdedor();
-	cout << "Camara en: " << carrera.corredorFilmado() << endl;
-	carrera.filmarProxPerdedor();
-	cout << "Camara en: " << carrera.corredorFilmado() << endl;
-	carrera.filmarProxPerdedor();
-	cout << "Camara en: " << carrera.corredorFilmado() << endl;
-	carrera.filmarProxPerdedor();
-	cout << "Camara en: " << carrera.corredorFilmado() << endl;
-
-
-	CorrePocoyo<int> carreraClone(carrera);
-	cout<< carreraClone;
+	// carrera.filmarProxExitoso();
+	// cout << "Camara en: " << carrera.corredorFilmado() << endl;
+	// carrera.filmarProxExitoso();
+	// cout << "Camara en: " << carrera.corredorFilmado() << endl;
+	// carrera.filmarProxExitoso();
+	// cout << "Camara en: " << carrera.corredorFilmado() << endl;
+	// carrera.filmarProxExitoso();
+	// cout << "Camara en: " << carrera.corredorFilmado() << endl;
+	// carrera.filmarProxPerdedor();
+	// cout << "Camara en: " << carrera.corredorFilmado() << endl;
+	// carrera.filmarProxPerdedor();
+	// cout << "Camara en: " << carrera.corredorFilmado() << endl;
+	// carrera.filmarProxPerdedor();
+	// cout << "Camara en: " << carrera.corredorFilmado() << endl;
+	// carrera.filmarProxPerdedor();
+	// cout << "Camara en: " << carrera.corredorFilmado() << endl;
 
 	cout << endl;
 
