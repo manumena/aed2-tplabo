@@ -25,10 +25,12 @@ CorrePocoyo<T>::~CorrePocoyo(){
 		delete primero->anterior;
 		cout << "liberado " << *(primero->anterior->corredor) << endl;
 	}
-	cout << endl << "sobre " << *(primero->corredor) << endl;
-	cout << "liberando direccion " << primero << endl;
-	delete primero;
-	cout << "liberado " << *(primero->corredor) << endl;
+	if(primero != NULL){
+		cout << endl << "sobre " << *(primero->corredor) << endl;
+		cout << "liberando direccion " << primero << endl;
+		delete primero;
+		cout << "liberado " << *(primero->corredor) << endl;
+	}
 }
 
 template<typename T>
@@ -90,6 +92,37 @@ void CorrePocoyo<T>::nuevoCorredor(const T& c1, const T& c2){
 }
 
 template<typename T>
+void CorrePocoyo<T>::seCansa(const T& t){
+	Nodo *actual = primero;
+	while(!(*(actual->corredor) == t))
+		actual = actual->siguiente;
+
+	if(actual == primero){
+		if(actual == ultimo){
+			primero = NULL;
+			ultimo = NULL;
+		}
+		else{
+			primero = actual->siguiente;
+			actual->siguiente->anterior = NULL;
+		}
+	}
+	else{
+		if(actual == ultimo){
+			ultimo = actual->anterior;
+			actual->anterior->siguiente = NULL;
+		}
+		else{
+			actual->siguiente->anterior = actual->anterior;
+			actual->anterior->siguiente = actual->siguiente;
+		}
+	}
+
+	delete actual;
+	cantCorredores--;
+}
+
+template<typename T>
 bool CorrePocoyo<T>::esVacia() const{
 	return (cantCorredores == 0);
 }
@@ -135,6 +168,5 @@ const T& CorrePocoyo<T>::dameCorredorEnPos(int p) const{
 		actual = actual->siguiente;
 		i++;
 	}
-	cout << "dir del corredor " << p << ": " << *(actual->corredor);
 	return *(actual->corredor);
 }

@@ -22,9 +22,18 @@ int main(){
 
 	//CorrePocoyo<int> carreraClone(carrera);
 
-	carrera.nuevoCorredor('F','A');
-	carrera.nuevoCorredor('G','E');
+	// carrera.nuevoCorredor('F','A');
+	// carrera.nuevoCorredor('G','E');
 
+	carrera.seCansa('A');
+	cout << carrera;
+	carrera.seCansa('E');
+	cout << carrera;
+	carrera.seCansa('C');
+	cout << carrera;
+	carrera.seCansa('D');
+	cout << carrera;
+	carrera.seCansa('B');
 	cout << carrera;
 	
 	cout << endl;
