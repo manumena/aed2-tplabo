@@ -17,15 +17,22 @@ CorrePocoyo<T>::CorrePocoyo(){
 
 template<typename T>
 CorrePocoyo<T>::CorrePocoyo(const CorrePocoyo<T>& cp){
-	int i = 0;
+	
+	int i = 1;
 	primero = NULL;
 	ultimo = NULL;
 	cantCorredores = 0;
-	while(i< cp.tamanio()){
+	while(i<= cp.tamanio()){
 		nuevoCorredor(cp.dameCorredorEnPos(i));
 		i++;
 	}
-	
+	Nodo *actual = primero;
+	cout << "corredor filmado:" << cp.corredorFilmado() << endl;
+	while(*(actual->corredor) != dameCorredorEnPos(damePosicion(cp.corredorFilmado()))){		
+		actual = actual->siguiente;
+	}
+	camara = actual;
+	printNodo(camara,"camara");
 	//RESOLVER CAMARA con indices
 }
 
@@ -65,7 +72,7 @@ void CorrePocoyo<T>::nuevoCorredor(const T& t){
 	cantCorredores++;
 
 
-	cout << endl << "nuevo corredor nuevo y existente" << endl;
+	cout << endl << "nuevo corredor nuevo " << endl;
 	printNodo(nuevo,"nuevo");
 
 }
