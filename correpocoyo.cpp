@@ -16,6 +16,19 @@ CorrePocoyo<T>::CorrePocoyo(){
 
 template<typename T>
 CorrePocoyo<T>::~CorrePocoyo(){
+	// Los punteros nulos no se liberan
+	cout << endl << "Destruyendo... " << endl;
+	while(primero != ultimo){
+		cout << endl << "sobre " << *(primero->corredor) << endl;
+		primero = primero->siguiente;
+		cout << "liberando direccion " << primero->anterior << endl;
+		delete primero->anterior;
+		cout << "liberado " << *(primero->anterior->corredor) << endl;
+	}
+	cout << endl << "sobre " << *(primero->corredor) << endl;
+	cout << "liberando direccion " << primero << endl;
+	delete primero;
+	cout << "liberado " << *(primero->corredor) << endl;
 }
 
 template<typename T>

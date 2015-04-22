@@ -20,10 +20,9 @@ int main(){
 
 	cout << carrera;
 
-
 	CorrePocoyo<int> carreraClone(carrera);
-
 	
 	cout << endl;
+
 	return 0;
 }

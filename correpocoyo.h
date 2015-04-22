@@ -44,7 +44,7 @@ class CorrePocoyo{
 	void nuevoCorredor(const T&, const T&);
 	
 	/*
-	 * Elimina del pocoyo al que se envía
+	 * Elimina del pocoyo al que se envía, NO OLVIDAR LIBERAR LA MEMORIA
 	 *
 	 * PRE: Existe el corredor
 	 */
@@ -145,7 +145,5 @@ class CorrePocoyo{
 	int cantCorredores;
 
 };
-
-
 
 #endif //CORREPOCOYO_H
