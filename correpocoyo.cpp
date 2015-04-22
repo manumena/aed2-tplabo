@@ -64,11 +64,10 @@ void CorrePocoyo<T>::nuevoCorredor(const T& t){
 	camara = nuevo;
 	cantCorredores++;
 
-	cout << endl << "nuevo corredor" << endl;
-	cout << "direccion del nuevo nodo: " << nuevo << endl ;
-	cout << "direccion nuevo corredor: " << nuevo->corredor << endl;
-	cout << "direccion del anterior: " << nuevo->anterior << endl;
-	cout << "direccion del siguiente: " << nuevo->siguiente << endl;
+
+	cout << endl << "nuevo corredor nuevo y existente" << endl;
+	printNodo(nuevo,"nuevo");
+
 }
 
 template<typename T>
@@ -96,15 +95,9 @@ void CorrePocoyo<T>::nuevoCorredor(const T& c1, const T& c2){
 	cantCorredores++;
 
 	cout << endl << "nuevo corredor nuevo y existente" << endl;
-	cout << "direccion del nuevo nodo: " << nuevo << endl; 
-	cout << "direccion nuevo corredor: " << nuevo->corredor << endl;
-	cout << "direccion del nuevo anterior: " << nuevo->anterior << endl;
-	cout << "direccion del nuevo siguiente: " << nuevo->siguiente << endl;
-
-	cout << "direccion del existente nodo: " << actual << endl ;
-	cout << "direccion existente corredor: " << actual->corredor << endl;
-	cout << "direccion del existente anterior: " << actual->anterior << endl;
-	cout << "direccion del existente siguiente: " << actual->siguiente << endl;
+	printNodo(nuevo,"nuevo");
+	cout<< endl;
+	printNodo(actual,"actual");
 }
 
 template<typename T>
@@ -185,6 +178,52 @@ const T& CorrePocoyo<T>::dameCorredorEnPos(int p) const{
 }
 
 template<typename T>
+void CorrePocoyo<T>:: sobrepasar(const T& c){
+	Nodo *actual;
+	actual = primero;
+	while(*(actual->corredor) != c){		
+		actual = actual->siguiente;
+	}
+	if((ultimo == actual) && (actual->anterior == primero)){
+		actual->anterior->anterior = actual;
+		actual->siguiente = actual->anterior;
+		actual->anterior = NULL;
+		actual->siguiente->siguiente = NULL;
+		ultimo = actual->siguiente;
+		primero = actual;
+
+
+	}else if(ultimo == actual){
+		actual->anterior->anterior->siguiente = actual;
+		actual->anterior->siguiente = NULL;
+		actual->siguiente =actual->anterior;
+		actual->anterior = actual->anterior->anterior;
+		actual->siguiente->anterior = actual;
+		ultimo = actual->siguiente;
+
+	}else if((actual->anterior == primero)){
+		actual->siguiente->anterior = actual->anterior;
+		actual->anterior->siguiente = actual->siguiente;
+		actual->anterior->anterior = actual;
+		actual->siguiente = actual->anterior;
+		actual->anterior = NULL;
+		primero = actual;
+	}else{
+		actual->anterior->anterior->siguiente = actual;
+		actual->anterior->siguiente = actual->siguiente;
+		actual->siguiente->anterior = actual->anterior;
+		actual->siguiente = actual->anterior;
+		actual->anterior = actual->anterior->anterior;
+		actual->siguiente->anterior = actual;
+	}
+	printNodo(actual,"actual");
+	cout << endl;
+	printNodo(actual->siguiente,"pasado");
+	
+
+}
+
+template<typename T>
 bool CorrePocoyo<T>::esVacia() const{
 	return (cantCorredores == 0);
 }
@@ -214,7 +253,15 @@ void CorrePocoyo<T>::filmarOtro(){
 			camara = NULL;
 		else
 			filmarProxPerdedor();
-	}
-	else
+	}else{
 		filmarProxExitoso();
+	}
+}
+
+template<typename T>
+void CorrePocoyo<T>::printNodo(Nodo* n,string s){
+	cout << "direccion del "<< s <<" nodo: " << n << endl; 
+	cout << "direccion "<< s <<" corredor: " << n->corredor << endl;
+	cout << "direccion del "<< s <<" anterior: " << n->anterior << endl;
+	cout << "direccion del "<< s <<" siguiente: " << n->siguiente << endl;
 }

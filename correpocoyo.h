@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <cassert>
+#include <string>
 
 using namespace std;
 
@@ -146,6 +147,7 @@ class CorrePocoyo{
 	Nodo *ultimo;
 	Nodo *camara;
 	int cantCorredores;
+	void printNodo(Nodo*,string);
 
 	void filmarOtro();
 

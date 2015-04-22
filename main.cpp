@@ -7,8 +7,21 @@ using namespace std;
 int main(){
 	CorrePocoyo<int> carrera;
 
-	cout << endl << "Cantidad de corredores: " << carrera.tamanio() << endl;
-	// cout << endl << "Carrera vacia?: " << carrera.esVacia() << endl; 	//Me devuelve 1 en lugar de true
+	carrera.nuevoCorredor('A');
+	carrera.nuevoCorredor('B');
+	carrera.nuevoCorredor('C');
+	carrera.nuevoCorredor('D');
+	cout << carrera;
+
+	carrera.sobrepasar('D');
+	cout << carrera;
+	carrera.sobrepasar('D');
+	cout << carrera;
+	carrera.sobrepasar('D');
+	cout << carrera;
+	/*cout << endl << "Cantidad de corredores: " << carrera.tamanio() << endl;
+	cout << endl << "Carrera vacia?: " << carrera.esVacia() << endl; 	//Me devuelve 1 en lugar de true
+
 
 	carrera.nuevoCorredor('A');
 	carrera.nuevoCorredor('B');
@@ -66,6 +79,8 @@ int main(){
 
 
 	cout << endl;
+*/
+
 
 	return 0;
 }
