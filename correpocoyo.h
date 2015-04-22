@@ -213,13 +213,13 @@ void CorrePocoyo<T>::nuevoCorredor(const T& t){
 	nuevo->anterior = ultimo;
 	nuevo->siguiente = NULL;
 	
-	if(primero == NULL) 
+	if(primero == NULL){ 
 		primero = nuevo;
+		camara = nuevo;
+	}
 	if(ultimo != NULL)
 		ultimo->siguiente = nuevo;
 	ultimo = nuevo;
-
-	camara = nuevo;
 	cantCorredores++;
 
 
@@ -249,7 +249,6 @@ void CorrePocoyo<T>::nuevoCorredor(const T& c1, const T& c2){
 	}
 	
 	actual->anterior = nuevo;
-	camara = nuevo;
 	cantCorredores++;
 
 	//cout << endl << "nuevo corredor nuevo y existente" << endl;
