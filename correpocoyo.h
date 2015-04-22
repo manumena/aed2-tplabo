@@ -411,13 +411,13 @@ ostream& CorrePocoyo<T>::mostrarCorrePocoyo(ostream& stream) const{
 	int pos = 1;
 	Nodo *actual = primero;
 	while(actual != NULL){
-		if(actual->siguiente == NULL)
-			stream << *(actual->corredor) << "]";
-		else
-			stream << *(actual->corredor) << ", ";
+		stream << *(actual->corredor);
+		if(actual->siguiente != NULL)
+			stream << ", ";
 		actual = actual->siguiente;
 		pos++;
 	}
+	stream << "]";
 	return stream;
 }
 
