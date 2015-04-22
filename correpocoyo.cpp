@@ -158,6 +158,11 @@ void CorrePocoyo<T>::filmarProxExitoso(){
 }
 
 template<typename T>
+const T& CorrePocoyo<T>::damePrimero() const{
+	return dameCorredorEnPos(0);
+}
+
+template<typename T>
 const T& CorrePocoyo<T>::dameCorredorEnPos(int p) const{
 	int i = 0;
 	Nodo *actual = primero;

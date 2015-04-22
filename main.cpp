@@ -16,11 +16,13 @@ int main(){
 	carrera.nuevoCorredor('E');
 
 	cout << endl << "Cantidad de corredores: " << carrera.tamanio() << endl;
-	cout << endl << "Carrera vacia?: " << carrera.esVacia() << endl;
+	// cout << endl << "Carrera vacia?: " << carrera.esVacia() << endl;
 
 	cout << "Camara en: " << carrera.corredorFilmado() << endl;
 
 	cout << carrera << endl;
+
+	// cout << "Primero: " << carrera.damePrimero() << endl;
 
 	//CorrePocoyo<int> carreraClone(carrera);
 
