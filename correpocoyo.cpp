@@ -38,13 +38,13 @@ CorrePocoyo<T>::~CorrePocoyo(){
 		primero = primero->siguiente;
 		cout << "liberando direccion " << primero->anterior << endl;
 		delete primero->anterior;
-		cout << "liberado " << *(primero->anterior->corredor) << endl;
+		cout << "liberado" << endl;
 	}
 	if(primero != NULL){
 		cout << endl << "sobre " << *(primero->corredor) << endl;
 		cout << "liberando direccion " << primero << endl;
 		delete primero;
-		cout << "liberado " << *(primero->corredor) << endl;
+		cout << "liberado" << endl;
 	}
 }
 
