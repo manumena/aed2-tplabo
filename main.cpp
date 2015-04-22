@@ -20,18 +20,14 @@ int main(){
 
 	cout << carrera;
 
-
 	//CorrePocoyo<int> carreraClone(carrera);
+
 	carrera.nuevoCorredor('F','A');
 	carrera.nuevoCorredor('G','E');
 
 	cout << carrera;
 	
-
-
-
-
-	
 	cout << endl;
+
 	return 0;
 }
