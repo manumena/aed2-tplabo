@@ -148,6 +148,7 @@ class CorrePocoyo{
 	int cantCorredores;
 
 	void filmarOtro();
+
 };
 
 #endif //CORREPOCOYO_H

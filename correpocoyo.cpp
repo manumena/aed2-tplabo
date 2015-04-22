@@ -16,6 +16,20 @@ CorrePocoyo<T>::CorrePocoyo(){
 }
 
 template<typename T>
+CorrePocoyo<T>::CorrePocoyo(const CorrePocoyo<T>& cp){
+	int i = 0;
+	primero = NULL;
+	ultimo = NULL;
+	cantCorredores = 0;
+	while(i< cp.tamanio()){
+		nuevoCorredor(cp.dameCorredorEnPos(i));
+		i++;
+	}
+	
+	//RESOLVER CAMARA con indices
+}
+
+template<typename T>
 CorrePocoyo<T>::~CorrePocoyo(){
 	// Los punteros nulos no se liberan
 	cout << endl << "Destruyendo... " << endl;
@@ -145,6 +159,18 @@ void CorrePocoyo<T>::filmarProxExitoso(){
 }
 
 template<typename T>
+const T& CorrePocoyo<T>::dameCorredorEnPos(int p) const{
+	int i = 0;
+	Nodo *actual;
+	actual = primero;
+	while(i < p){
+		actual = actual->siguiente;
+		i++;
+	}
+	return *(actual->corredor);
+}
+
+template<typename T>
 bool CorrePocoyo<T>::esVacia() const{
 	return (cantCorredores == 0);
 }
@@ -166,32 +192,6 @@ ostream& CorrePocoyo<T>::mostrarCorrePocoyo(ostream& stream) const{
 		pos++;
 	}
 	return stream;
-}
-
-template<typename T>
-CorrePocoyo<T>::CorrePocoyo(const CorrePocoyo<T>& cp){
-	int i = 0;
-	primero = NULL;
-	ultimo = NULL;
-	cantCorredores = 0;
-	while(i< cp.tamanio()){
-		nuevoCorredor(cp.dameCorredorEnPos(i));
-		i++;
-	}
-	
-	//RESOLVER CAMARA con indices
-}
-
-template<typename T>
-const T& CorrePocoyo<T>::dameCorredorEnPos(int p) const{
-	int i = 0;
-	Nodo *actual;
-	actual = primero;
-	while(i < p){
-		actual = actual->siguiente;
-		i++;
-	}
-	return *(actual->corredor);
 }
 
 template<typename T>
