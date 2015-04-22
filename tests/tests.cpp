@@ -2,7 +2,7 @@
 // valgrind --leak-check=full -v ./tests
 
 #include "mini_test.h"
-#include "correpocoyo.h"
+#include "../correpocoyo.h"
 
 
 template<typename T>

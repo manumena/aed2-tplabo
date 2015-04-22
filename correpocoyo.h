@@ -179,7 +179,7 @@ CorrePocoyo<T>::CorrePocoyo(const CorrePocoyo<T>& cp){
 		i++;
 	}
 	Nodo *actual = primero;
-	cout << "corredor filmado:" << cp.corredorFilmado() << endl;
+	//cout << "corredor filmado:" << cp.corredorFilmado() << endl;
 	while(*(actual->corredor) != dameCorredorEnPos(damePosicion(cp.corredorFilmado()))){		
 		actual = actual->siguiente;
 	}
@@ -190,19 +190,19 @@ CorrePocoyo<T>::CorrePocoyo(const CorrePocoyo<T>& cp){
 template<typename T>
 CorrePocoyo<T>::~CorrePocoyo(){
 	// Los punteros nulos no se liberan
-	cout << endl << "Destruyendo... " << endl;
+	//cout << endl << "Destruyendo... " << endl;
 	while(primero != ultimo){
-		cout << endl << "sobre " << *(primero->corredor) << endl;
+		//cout << endl << "sobre " << *(primero->corredor) << endl;
 		primero = primero->siguiente;
-		cout << "liberando direccion " << primero->anterior << endl;
+		//cout << "liberando direccion " << primero->anterior << endl;
 		delete primero->anterior;
-		cout << "liberado" << endl;
+		//cout << "liberado" << endl;
 	}
 	if(primero != NULL){
-		cout << endl << "sobre " << *(primero->corredor) << endl;
-		cout << "liberando direccion " << primero << endl;
+		//cout << endl << "sobre " << *(primero->corredor) << endl;
+		//cout << "liberando direccion " << primero << endl;
 		delete primero;
-		cout << "liberado" << endl;
+		//cout << "liberado" << endl;
 	}
 }
 
@@ -223,7 +223,7 @@ void CorrePocoyo<T>::nuevoCorredor(const T& t){
 	cantCorredores++;
 
 
-	cout << endl << "nuevo corredor" << endl;
+	//cout << endl << "nuevo corredor" << endl;
 	printNodo(nuevo,"nuevo");
 
 }
@@ -252,9 +252,9 @@ void CorrePocoyo<T>::nuevoCorredor(const T& c1, const T& c2){
 	camara = nuevo;
 	cantCorredores++;
 
-	cout << endl << "nuevo corredor nuevo y existente" << endl;
+	//cout << endl << "nuevo corredor nuevo y existente" << endl;
 	printNodo(nuevo,"nuevo");
-	cout<< endl;
+	//cout<< endl;
 	printNodo(actual,"actual");
 }
 
@@ -329,7 +329,7 @@ void CorrePocoyo<T>:: sobrepasar(const T& c){
 		actual->siguiente->anterior = actual;
 	}
 	printNodo(actual,"actual");
-	cout << endl;
+	//cout << endl;
 	printNodo(actual->siguiente,"pasado");
 	
 
@@ -394,9 +394,9 @@ bool CorrePocoyo<T>::operator==(const CorrePocoyo<T>& c) const{
 	else{
 		int pos = 1;
 		while(pos <= c.cantCorredores){
-			cout << "Pos: " << pos << endl;
-			cout << "Corredor en original: " << dameCorredorEnPos(pos) << endl;
-			cout << "Corredor en otra: " << c.dameCorredorEnPos(pos) << endl;
+			//cout << "Pos: " << pos << endl;
+			//cout << "Corredor en original: " << dameCorredorEnPos(pos) << endl;
+			//cout << "Corredor en otra: " << c.dameCorredorEnPos(pos) << endl;
 			if(dameCorredorEnPos(pos) != c.dameCorredorEnPos(pos))
 				return false;
 			pos++;
@@ -432,10 +432,10 @@ void CorrePocoyo<T>::filmarOtro(){
 
 template<typename T>
 void CorrePocoyo<T>::printNodo(Nodo* n,string s){
-	cout << endl << "direccion del "<< s <<" nodo: " << n << endl; 
-	cout << "direccion "<< s <<" corredor: " << n->corredor << endl;
-	cout << "direccion del "<< s <<" anterior: " << n->anterior << endl;
-	cout << "direccion del "<< s <<" siguiente: " << n->siguiente << endl;
+	//cout << endl << "direccion del "<< s <<" nodo: " << n << endl; 
+	//cout << "direccion "<< s <<" corredor: " << n->corredor << endl;
+	//cout << "direccion del "<< s <<" anterior: " << n->anterior << endl;
+	//cout << "direccion del "<< s <<" siguiente: " << n->siguiente << endl;
 }
 
 #endif //CORREPOCOYO_H

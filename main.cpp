@@ -4,14 +4,14 @@
 using namespace std;
 
 int main(){
-	CorrePocoyo<char> carrera;
+	// CorrePocoyo<char> carrera;
 
-	carrera.nuevoCorredor('A');
-	carrera.nuevoCorredor('B');
-	carrera.nuevoCorredor('C');
-	carrera.nuevoCorredor('D');
-	carrera.nuevoCorredor('E');
-	cout << carrera;
+	// carrera.nuevoCorredor('A');
+	// carrera.nuevoCorredor('B');
+	// carrera.nuevoCorredor('C');
+	// carrera.nuevoCorredor('D');
+	// carrera.nuevoCorredor('E');
+	// cout << carrera;
 
 	// carrera.sobrepasar('D');
 	// cout << carrera;
@@ -72,7 +72,7 @@ int main(){
 	// carrera.filmarProxPerdedor();
 	// cout << "Camara en: " << carrera.corredorFilmado() << endl;
 
-	cout << endl;
+	// cout << endl;
 
 	return 0;
 }
