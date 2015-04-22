@@ -11,6 +11,7 @@ template<typename T>
 CorrePocoyo<T>::CorrePocoyo(){
 	primero = NULL;
 	ultimo = NULL;
+	camara = NULL;
 	cantCorredores = 0;
 }
 
@@ -46,6 +47,7 @@ void CorrePocoyo<T>::nuevoCorredor(const T& t){
 		ultimo->siguiente = nuevo;
 	ultimo = nuevo;
 
+	camara = nuevo;
 	cantCorredores++;
 
 	cout << endl << "nuevo corredor" << endl;
@@ -77,6 +79,7 @@ void CorrePocoyo<T>::nuevoCorredor(const T& c1, const T& c2){
 	}
 	
 	actual->anterior = nuevo;
+	camara = nuevo;
 	cantCorredores++;
 
 	cout << endl << "nuevo corredor nuevo y existente" << endl;
@@ -97,10 +100,14 @@ void CorrePocoyo<T>::seCansa(const T& t){
 	while(!(*(actual->corredor) == t))
 		actual = actual->siguiente;
 
+	if(camara == actual)
+		filmarOtro();
+
 	if(actual == primero){
 		if(actual == ultimo){
 			primero = NULL;
 			ultimo = NULL;
+			camara = NULL;
 		}
 		else{
 			primero = actual->siguiente;
@@ -117,9 +124,24 @@ void CorrePocoyo<T>::seCansa(const T& t){
 			actual->anterior->siguiente = actual->siguiente;
 		}
 	}
-
+	
 	delete actual;
 	cantCorredores--;
+}
+
+template<typename T>
+const T& CorrePocoyo<T>::corredorFilmado() const{
+	return *(camara->corredor);
+}
+
+template<typename T>
+void CorrePocoyo<T>::filmarProxPerdedor(){
+	camara = camara->siguiente;
+}
+
+template<typename T>
+void CorrePocoyo<T>::filmarProxExitoso(){
+	camara = camara->anterior;
 }
 
 template<typename T>
@@ -157,6 +179,7 @@ CorrePocoyo<T>::CorrePocoyo(const CorrePocoyo<T>& cp){
 		i++;
 	}
 	
+	//RESOLVER CAMARA con indices
 }
 
 template<typename T>
@@ -169,4 +192,16 @@ const T& CorrePocoyo<T>::dameCorredorEnPos(int p) const{
 		i++;
 	}
 	return *(actual->corredor);
+}
+
+template<typename T>
+void CorrePocoyo<T>::filmarOtro(){
+	if(camara == primero){
+		if(camara == ultimo)
+			camara = NULL;
+		else
+			filmarProxPerdedor();
+	}
+	else
+		filmarProxExitoso();
 }

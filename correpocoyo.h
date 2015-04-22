@@ -70,7 +70,8 @@ class CorrePocoyo{
 	 * PRE: Hay corredore en la CorrePocoyo.
 	 */
 	void filmarProxPerdedor();
-	    /*
+	 
+	/*
 	 * Devuelve el próximo elemento según el orden dado.
 	 * Pasa a filmar al corredor de adelante 
 	 *
@@ -131,6 +132,7 @@ class CorrePocoyo{
 		return *this;
 	}
 
+
 	/*
 	 * Aca va la implementación del nodo.
 	 */
@@ -142,8 +144,10 @@ class CorrePocoyo{
 
 	Nodo *primero;
 	Nodo *ultimo;
+	Nodo *camara;
 	int cantCorredores;
 
+	void filmarOtro();
 };
 
 #endif //CORREPOCOYO_H
