@@ -33,7 +33,47 @@ void CorrePocoyo<T>::nuevoCorredor(const T& t){
 
 	cantCorredores++;
 
-	cout << endl << "nuevo corredor" << endl << "direccion del nuevo nodo: " << nuevo << endl << "direccion nuevo corredor: " << nuevo->corredor << endl << "direccion del anterior: " << nuevo->anterior << endl << "direccion del siguiente: " << nuevo->siguiente << endl;
+	cout << endl << "nuevo corredor" << endl;
+	cout << "direccion del nuevo nodo: " << nuevo << endl ;
+	cout << "direccion nuevo corredor: " << nuevo->corredor << endl;
+	cout << "direccion del anterior: " << nuevo->anterior << endl;
+	cout << "direccion del siguiente: " << nuevo->siguiente << endl;
+}
+
+template<typename T>
+void CorrePocoyo<T>::nuevoCorredor(const T& c1, const T& c2){
+	Nodo *actual;
+	actual = primero;
+	while(*(actual->corredor) != c2){		
+		actual = actual->siguiente;
+	}
+	
+	Nodo *nuevo = new Nodo;
+	nuevo->corredor = new T(c1);
+	nuevo->siguiente = actual;
+	nuevo->anterior = actual->anterior;
+
+
+	if(actual == primero){
+		primero = nuevo;
+		
+	}else{
+		actual->anterior->siguiente = nuevo;
+	}
+	
+	actual->anterior = nuevo;
+	cantCorredores++;
+
+	cout << endl << "nuevo corredor nuevo y existente" << endl;
+	cout << "direccion del nuevo nodo: " << nuevo << endl; 
+	cout << "direccion nuevo corredor: " << nuevo->corredor << endl;
+	cout << "direccion del nuevo anterior: " << nuevo->anterior << endl;
+	cout << "direccion del nuevo siguiente: " << nuevo->siguiente << endl;
+
+	cout << "direccion del existente nodo: " << actual << endl ;
+	cout << "direccion existente corredor: " << actual->corredor << endl;
+	cout << "direccion del existente anterior: " << actual->anterior << endl;
+	cout << "direccion del existente siguiente: " << actual->siguiente << endl;
 }
 
 template<typename T>
@@ -59,6 +99,7 @@ ostream& CorrePocoyo<T>::mostrarCorrePocoyo(ostream& stream) const{
 	}
 	return stream;
 }
+
 template<typename T>
 CorrePocoyo<T>::CorrePocoyo(const CorrePocoyo<T>& cp){
 	int i = 0;
@@ -71,6 +112,7 @@ CorrePocoyo<T>::CorrePocoyo(const CorrePocoyo<T>& cp){
 	}
 	
 }
+
 template<typename T>
 const T& CorrePocoyo<T>::dameCorredorEnPos(int p) const{
 	int i = 0;
